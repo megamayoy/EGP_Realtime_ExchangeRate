@@ -41,7 +41,7 @@ class DatabaseInterface:
                 cursor.execute(insert_query, (value,))
                 self.db_connection.commit()
                 count = cursor.rowcount
-                print(count, "Record inserted successfully into table successfully")
+                print(count, "Record inserted successfully into table")
             except (Exception, psycopg2.Error) as error:
                 print("Failed to insert record")
                 print(error)
