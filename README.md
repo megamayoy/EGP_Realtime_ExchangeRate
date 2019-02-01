@@ -1,5 +1,6 @@
 # EGP_Realtime_ExchangeRate
-a command line program that shows  EGP real time exchange rate for foreign currencies using currencyconverterAPI  
+a command line program that shows  EGP real time exchange rate for foreign currencies using currencyconverterAPI
+https://www.currencyconverterapi.com/
 
 # Guidelines
 
