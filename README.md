@@ -29,7 +29,7 @@ a command line program that shows  EGP real time exchange rate for foreign curre
         port=5432
         database=postgres
         user=postgres
-        password= test123  
+        password=test123  
   ```
   
  # running main script
