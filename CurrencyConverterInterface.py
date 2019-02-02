@@ -30,20 +30,25 @@ class CurrencyConverterInterface:
             print(request_errors)
             return None
 
-        json_api_response = currency_converter_request.json()
+        # check if the API is not down
+        if currency_converter_request.status_code == requests.codes.ok:
 
-        if json_api_response['query']['count'] == 0:
-            print("Opps! something went wrong:")
-            print("please check the correctness of currency codes")
-            return None
+            json_api_response = currency_converter_request.json()
 
+            # check if currency codes are correct
+
+            if json_api_response['query']['count'] == 0:
+                print("Opps! something went wrong:")
+                print("please check the correctness of currency codes")
+                return None
+
+            else:
+
+                modified_response = {"base": base_currency,
+                                     "target": target_currency,
+                                     "rate": json_api_response['results'][url_query_string]['val'],
+                                     "date": str(date.today())
+                                    }
+                return modified_response
         else:
-
-            modified_response = {"base": base_currency,
-                                 "target": target_currency,
-                                 "rate": json_api_response['results'][url_query_string]['val'],
-                                 "date": str(date.today())
-                                }
-            return modified_response
-
-
+            return None
